@@ -14,7 +14,9 @@ const App = () => {
 
   // Define function to all API
   async function fetchCoins() {
-    const data = await API.get('cryptoapi', '/coins')
+
+    const { limit, start } = input
+    const data = await API.get('cryptoapi', `/coins?limit=${limit}&start=${start}`)
     updateCoins(data.coins)
   }
 
@@ -22,6 +24,14 @@ const App = () => {
   useEffect(() => {
     fetchCoins()
   }, [])
+
+  // Create additional state to hold user input for limit and start properties
+  const [input, updateInput] = useState({ limit: 50, start: 0 })
+
+  // Create a new function to allow users to update the input values
+  function updateInputValues(type, value) {
+    updateInput({ ...input, [type]: value })
+  }
 
   return (
     <div className="App">

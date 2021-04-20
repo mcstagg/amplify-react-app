@@ -18,17 +18,41 @@ const App = () => {
   //async function fetchCoins() {
   const fetchCoins = async () => {
 
-    updateLoading(true);
+    try {
 
-    const { limit, start } = input
-    const data = await API.get('cryptoapi', `/coins?limit=${limit}&start=${start}`)
-    
-    updateCoins(data.coins)
-    //coins = data.coins;
-    console.log(coins);
+      updateLoading(true);
 
-    updateLoading(false);
+      const { limit, start } = input
+      const data = await API.get('cryptoapi', `/coins?limit=${limit}&start=${start}`)
+      
+      updateCoins(data.coins)
+      //coins = data.coins;
+      console.log(coins);
+  
+      updateLoading(false);
+      }
+  
+    catch (err) {
+      console.error(err);
+    }
+
   }
+
+  // Promise verson of above async await code (loading may not work)
+
+  // const fetchCoins = () => {
+  //   updateLoading(true);
+  //
+  //   const { limit, start } = input;
+  //
+  //   API.get('apif65452a3', `/coins?limit=${limit}&start=${start}`)
+  //     .then(response => updateCoins(response.coins))
+  //     .catch(err => console.error(err))
+  //   ;
+  //
+  //   updateLoading(false);
+  //
+  // };
 
   // Call fetchCoins function when component loads
   useEffect(() => {

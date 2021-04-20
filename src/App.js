@@ -10,7 +10,7 @@ import './App.css';
 
 const App = () => {
   // Create coins variable and set to empty array
-  const [coins, updateCoins] = useState([])
+  const [coins, updateCoins] = useState([]);
 
   // Define function to all API
   async function fetchCoins() {
@@ -35,6 +35,17 @@ const App = () => {
 
   return (
     <div className="App">
+
+    <input
+      placeholder="Enter a Starting Index"
+      onChange={e => updateInputValues('start', e.target.value)}
+    />
+    <input
+      onChange={e => updateInputValues('limit', e.target.value)}
+      placeholder="Enter a Limit"
+    />
+    <button onClick={fetchCoins}>Fetch Coins</button>
+
       {
         coins.map((coin, index) => (
           <div key={index}>

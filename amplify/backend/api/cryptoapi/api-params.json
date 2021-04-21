@@ -7,6 +7,13 @@
                 "open": true
             },
             "policyResourceName": "/coins"
+        },
+        {
+            "name": "/born",
+            "lambdaFunction": "cryptoapp2cfb987d",
+            "privacy": {
+                "open": true
+            }
         }
     ],
     "resourceName": "cryptoapi",
@@ -31,5 +38,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "ec3f7a64"
 }

@@ -8,6 +8,8 @@ from 'react';
 import { API } from 'aws-amplify';
 import './App.css';
 
+import { GitHubBornOn } from './GitHubBornOn';
+
 const App = () => {
 
   // Create coins variable and set to empty array
@@ -93,6 +95,7 @@ const App = () => {
           </div>
         ))
       }
+    <GitHubBornOn />
     </div>
   );
 }
